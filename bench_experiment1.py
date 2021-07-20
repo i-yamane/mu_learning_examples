@@ -76,9 +76,6 @@ def main() -> None:
     parser.add_argument('--optimizer', help='Optimizer name.',
                         type=str, default='Adam')
     parser.add_argument('--gpu_id', help='GPU ID.', type=int, default='0')
-    add_bool_arg(parser, name='show_plot', default=False,
-                 kw_options_on={'help': 'Turn on plotting for results.'},
-                 kw_options_off={'help': 'Turn off plotting for results.'})
     parser.add_argument('--mlflow_uri', help='MLflow tracking URI.',
                         type=str, default='.')
     parser.add_argument('--base_path', help='Base path to the data directory.',

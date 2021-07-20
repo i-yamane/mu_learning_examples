@@ -1,8 +1,6 @@
 from typing import Dict, Tuple, Sequence, Any, Optional, Callable
 from typing_extensions import Protocol
 
-import matplotlib.pyplot as plt
-import matplotlib
 import argparse
 
 import torch
@@ -66,7 +64,7 @@ def main() -> None:
     parser.add_argument('--optimizer', help='Optimizer name.',
                         type=str, default='Adam')
     parser.add_argument('--mlflow_uri', help='MLflow tracking URI.',
-                        type=str, default='file:.')
+                        type=str, default='file:./mlresults')
     args = parser.parse_args()
 
     torch.manual_seed(args.seed + 1)  # type: ignore
