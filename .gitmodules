@@ -1,0 +1,9 @@
+[submodule "pytorch_resnet_cifar10"]
+	path = pytorch_resnet_cifar10
+	url = https://github.com/akamaster/pytorch_resnet_cifar10.git
+[submodule "mediated_uncoupled_learning"]
+	path = mediated_uncoupled_learning
+	url = git@github.com:i-yamane/mediated_uncoupled_learning.git
+[submodule "PyTorch_GAN"]
+	path = PyTorch_GAN
+	url = git@github.com:i-yamane/PyTorch-GAN.git
