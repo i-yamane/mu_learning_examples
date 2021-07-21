@@ -25,8 +25,8 @@ else:
 
 def main() -> None:
     parser: Any = argparse.ArgumentParser(
-        prog='toy_experiment',
-        usage='python toy_experiment.py [OPTIONS]',
+        prog='toy_experiment1',
+        usage='python toy_experiment1.py [OPTIONS]',
         description='Experiments with toy data.',
         epilog='end',
         add_help=True,
@@ -261,19 +261,16 @@ def experiment1(
         lr_f=args.learning_rate,
         lr_h=args.learning_rate,
         w_init=.5,
-        analytic_w=False,
-        correct_bias=False,
         warm_start=False,
         record_loss=True,
         log_metric_label='UB_JointRR'
     )
-    model_JointRR_nn.fit_indirect(loader_xu, loader_uy)
+    model_JointRR.fit_indirect(loader_xu, loader_uy)
     mse_JointRR = mse_x2y_y(
-        predict_y_from_x=model_JointRR_nn.predict_y_from_x,
+        predict_y_from_x=model_JointRR.predict_y_from_x,
         loader_xy=loader_xy_te,
         device=_device)
     mlflow.log_metric('MSE_UB_JointRR', mse_JointRR)
-    mlflow.log_metric('w_UB_JointRR', model_JointRR.w())
     res['MSE_UB_JointRR'] = mse_JointRR
     print('MSE of UB_JointRR: {}'.format(mse_JointRR))
 

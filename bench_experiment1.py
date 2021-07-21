@@ -182,10 +182,6 @@ def bench_experiment1(args: Any, gen_data: Callable[[Any, bool], DataWithInfo]) 
                 num_classes=num_classes[args.dataname],
                 num_channels=args.n_channels
             ).to(_device),
-        model_g=models.__dict__[args.model_name_g](
-                num_classes=num_classes[args.dataname],
-                num_channels=args.n_channels
-            ).to(_device),
         weight_decay_f=1E-5,
         weight_decay_h=1E-5,
         n_epochs=args.epochs//2 if args.warm_start else args.epochs,
@@ -196,9 +192,6 @@ def bench_experiment1(args: Any, gen_data: Callable[[Any, bool], DataWithInfo]) 
         lr_h=args.learning_rate,
         grad_clip=args.grad_clip,
         warm_start=args.warm_start,
-        correct_bias=False,
-        optimize_w=False,
-        analytic_w=False,
         batch_norm=False,
         record_loss=True,
         log_metric_label='JointRR',
@@ -228,10 +221,6 @@ def bench_experiment1(args: Any, gen_data: Callable[[Any, bool], DataWithInfo]) 
                 num_channels=args.n_channels
             ).to(_device),
         model_h=models.__dict__[args.model_name_h](
-                num_classes=num_classes[args.dataname],
-                num_channels=args.n_channels
-            ).to(_device),
-        model_g=models.__dict__[args.model_name_g](
                 num_classes=num_classes[args.dataname],
                 num_channels=args.n_channels
             ).to(_device),

@@ -1,12 +1,9 @@
 set -eu
 
-export MLFLOW_TRACKING_URI=file:./results_MNIST; 
+export MLFLOW_TRACKING_URI=file:./results_MNIST 
 
-N_PARALELL=2
-
-i=0
-for ((seed=1; seed<50; ++seed)); do
-    echo $seed
+for ((seed=0; seed<5; ++seed)); do
+    echo "seed: $seed"
     python bench_experiment1.py \
         --model_name_h resnet20_prob_square \
         --model_name_f resnet20_prob_square \
@@ -26,16 +23,9 @@ for ((seed=1; seed<50; ++seed)); do
         --grad_clip 1e+15 \
         --weight_decay 0 \
         --seed $seed \
-        --no-show_plot \
         --n_channels 1 \
         --gpu_id 1 \
-        --mlflow_uri $MLFLOW_TRACKING_URI &
-
-    i=$((i + 1))
-    if (( i % $N_PARALELL == 0 )); then
-        wait
-        i=0
-    fi
+        --mlflow_uri $MLFLOW_TRACKING_URI
 done
 
 
