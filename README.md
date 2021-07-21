@@ -11,3 +11,9 @@ $ git clone --recurse-submodules git@github.com:i-yamane/mu_learning_examples.gi
 # Execution
 See the example shell scripts in the `sh_scripts` directory.
 
+# Browse results
+Execute
+```shell
+$ mlflow ui --backend-store-uri file:<directory_storing_results>
+```
+
