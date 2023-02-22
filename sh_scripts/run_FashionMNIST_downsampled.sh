@@ -1,6 +1,6 @@
 set -eu
 
-export MLFLOW_TRACKING_URI=file:./results_MNIST 
+export MLFLOW_TRACKING_URI=file:./results_FashionMNIST 
 
 for ((seed=0; seed<5; ++seed)); do
     echo "seed: $seed"
@@ -15,14 +15,15 @@ for ((seed=0; seed<5; ++seed)); do
         --downsampling_kernel 2 \
         --downsampling_stride 2 \
         --base_path ./data \
-        --dataname MNIST \
+        --dataname FashionMNIST \
         --warm_start \
         --optimizer AdamW \
         --learning_rate 0.001 \
         --grad_clip 1e+15 \
         --weight_decay 0 \
-        --seed $seed \
         --n_channels 1 \
-        --gpu_id 1 \
+        --gpu_id 0 \
+        --seed $seed \
         --mlflow_uri $MLFLOW_TRACKING_URI
 done
+

@@ -11,7 +11,6 @@ for ((seed=0; seed<5; ++seed)); do
         --n0 10000 \
         --n1 10000 \
         --epochs 200 \
-        --exp_type bench_assump_violated \
         --transform downsampling \
         --downsampling_kernel 2 \
         --downsampling_stride 2 \

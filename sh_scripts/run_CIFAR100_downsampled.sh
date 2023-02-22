@@ -1,6 +1,6 @@
 set -eu
 
-export MLFLOW_TRACKING_URI=file:./results_cifar100 
+export MLFLOW_TRACKING_URI=file:./results_CIFAR100
 
 for ((seed=0; seed<5; ++seed)); do
     echo "seed: $seed"
@@ -11,7 +11,6 @@ for ((seed=0; seed<5; ++seed)); do
         --n0 10000 \
         --n1 10000 \
         --epochs 200 \
-        --exp_type bench_assump_violated \
         --transform downsampling \
         --downsampling_kernel 2 \
         --downsampling_stride 2 \

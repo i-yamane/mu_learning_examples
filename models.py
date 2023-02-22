@@ -19,8 +19,20 @@ def resnet20(num_classes, num_channels):
     return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, n_channels=num_channels)
 
 
+def resnet20_sum_to_one(num_classes, num_channels):
+    return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, last_layer='sum_to_one', n_channels=num_channels)
+
+
+def resnet20_softmax(num_classes, num_channels):
+    return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, last_layer='log_softmax', n_channels=num_channels)
+
+
+def resnet20_prob_abs(num_classes, num_channels):
+    return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, last_layer='prob_abs', n_channels=num_channels)
+
+
 def resnet20_prob_square(num_classes, num_channels):
-    return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, prob_square=True, n_channels=num_channels)
+    return ResNet(BasicBlock, [3, 3, 3], num_classes=num_classes, last_layer='prob_square', n_channels=num_channels)
 
 
 def resnet32(num_classes, num_channels):
